@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Record Not Found — DYATLOV PASS{% endblock %}
+{% block content %}
+<section class="landing">
+    <h2 style="border:none;">404 — RECORD NOT FOUND</h2>
+    <p class="lead">The requested file does not exist in the recovered archive, or access is restricted.</p>
+    <p class="text-muted">Some materials were never recovered. Others remain classified.</p>
+    <a href="{{ url_for('index') }}" class="btn">Return to Case File</a>
+</section>
+{% endblock %}

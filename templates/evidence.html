@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Photographic Evidence — DYATLOV PASS{% endblock %}
+{% block content %}
+<h2>Photographic Evidence</h2>
+<p class="lead">Recovered plates and prints from the expedition and search operations. Some require external analysis.</p>
+
+<div class="evidence-grid">
+    <div class="evidence-card">
+        <div class="id">EVD-01 | RECOVERY: CAMERA ROLL</div>
+        <img src="{{ url_for('static', filename='images/ski_trek.png') }}" alt="Group skiing">
+        <p class="desc">Expedition members ascending on skis. Heavy packs, whiteout conditions. One of the last clear frames of the group in motion.</p>
+    </div>
+    
+    <div class="evidence-card">
+        <div class="id">EVD-02 | RECOVERY: SEARCH PARTY</div>
+        <img src="{{ url_for('static', filename='images/tent_site.png') }}" alt="Tent discovery">
+        <p class="desc">Search party at the abandoned tent. The structure was found cut open from the inside. Belongings and some footwear remained.</p>
+    </div>
+    
+    <div class="evidence-card">
+        <div class="id">EVD-03 | RECOVERY: LATER MEMORIAL</div>
+        <img src="{{ url_for('static', filename='images/memorial.png') }}" alt="Memorial markers on the slope">
+        <p class="desc">Modern markers placed near the site where two members were later found under the snow. The red outlines indicate recovery positions.</p>
+    </div>
+    
+    <div class="evidence-card">
+        <div class="id">EVD-04 | RECOVERY: UNCATALOGUED</div>
+        <div style="width:100%;height:180px;background:#1a1010;display:flex;align-items:center;justify-content:center;color:#8b0000;border:1px solid #8b0000;margin-bottom:0.75rem;font-size:0.85rem;text-align:center;padding:1rem;">
+            [DOWNLOADABLE ARTIFACT<br>ANOMALOUS PLATE]
+        </div>
+        <p class="desc">
+            <strong>Anomalous plate.</strong> Not listed in the original inventory. Date stamp appears inconsistent. 
+            File available for download and external analysis stegano.
+        </p>
+        <p style="margin-top:0.5rem;">
+            <a href="{{ url_for('download_artifact', filename='photo_04_evidence.txt') }}" class="btn" style="font-size:0.75rem;padding:0.4rem 0.8rem;">Download EVD-04</a>
+        </p>
+        
+        <!-- Stage 4: Recover the hidden content - photograph !! -->
+        
+    </div>
+</div>
+
+<img src="{{ url_for('static', filename='images/members.png') }}" 
+     alt="Member portraits" 
+     class="story-image"
+     style="max-height:420px; object-fit:contain; background:#111;">
+<p class="story-image-caption">Composite of expedition members — used for identification during the search</p>
+
+{% if progress >= 3 %}
+<div class="document mt-2">
+    <div class="meta">INVESTIGATOR NOTE</div>
+    <p>
+        EVD-04 was found among materials that should have been inventoried in 1959 but was not. 
+        Its existence is itself a discrepancy. Analyse the file outside this archive. The website 
+        does not contain tools for image forensics.
+    </p>
+</div>
+
+<div class="anomaly-box">
+    <p>
+        Some later popular accounts have speculated about lights in the sky, unusual radiation readings, 
+        or even non-terrestrial involvement. These interpretations remain outside the scope of the 
+        official 1959 investigation and are treated here as part of the broader cultural mystery, 
+        not as established fact. The CTF narrative uses such elements only as atmosphere and fictional clues.
+    </p>
+</div>
+{% endif %}
+
+<p class="mt-2">
+    <a href="{{ url_for('investigation') }}" class="btn">Investigation Progress</a>
+</p>
+{% endblock %}

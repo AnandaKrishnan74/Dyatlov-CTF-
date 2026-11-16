@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Investigation Complete — DYATLOV PASS{% endblock %}
+{% block content %}
+<section class="landing">
+    <div class="stamp">CASE FILE CLOSED — DIGITAL INVESTIGATION</div>
+    
+    <h2 style="border:none; margin-top:2rem;">Investigation Complete</h2>
+    
+    <img src="{{ url_for('static', filename='images/memorial.png') }}" 
+         alt="Memorial markers on the slope" 
+         class="story-image"
+         style="max-height:340px;">
+    <p class="story-image-caption">Markers on the slope of Kholat Syakhl — the place where the silence remains</p>
+    
+    <div class="document" style="text-align:left; max-width:700px; margin:2rem auto;">
+        <h3>Final Case Summary</h3>
+        <p>
+            Through systematic recovery of documents, timeline reconstruction, photographic analysis, 
+            restricted report comparison, and radio intercept examination, the digital investigator 
+            has assembled a coherent picture of the expedition's final days as represented in this archive.
+        </p>
+        <p>
+            The group reached the slope of Kholat Syakhl. The tent was abandoned under circumstances 
+            that remain incompletely explained. Search operations recovered the members over subsequent 
+            weeks. Certain records were incomplete; one photograph and one radio fragment did not fit 
+            cleanly into the official inventory.
+        </p>
+        <p>
+            The historical Dyatlov Pass incident retains its unresolved character. Reports of unusual 
+            lights, the decision to cut the tent from inside, and the separation of the group continue 
+            to invite speculation — including theories involving military tests, natural phenomena, 
+            and more exotic explanations. None have achieved universal acceptance.
+        </p>
+        <p>
+            This CTF narrative does not claim to solve the real event. What the archive does establish 
+            is that careful attention to primary materials can surface details that casual review overlooks. 
+            The silent expedition still has more to teach those who examine the evidence with patience.
+        </p>
+        <div class="stamp" style="margin-top:1.5rem;">FLAG 7 RECOVERED — SILENT EXPEDITION</div>
+    </div>
+    
+    <p class="mystery" style="max-width:500px;margin:2rem auto;">
+        "Something about this journey feels different."<br>
+        — The unease was never fully dispelled.
+    </p>
+    
+    <a href="{{ url_for('investigation') }}" class="btn">Review Investigation Stages</a>
+    <a href="{{ url_for('index') }}" class="btn">Return to Archive Entrance</a>
+</section>
+{% endblock %}

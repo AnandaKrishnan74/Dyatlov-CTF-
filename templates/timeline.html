@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Expedition Timeline — DYATLOV PASS{% endblock %}
+{% block content %}
+<h2>Expedition Timeline</h2>
+<p class="lead">Click each entry to expand additional investigation notes. Historical context is noted; fictional CTF elements are marked.</p>
+
+<img src="{{ url_for('static', filename='images/ski_trek.png') }}" 
+     alt="Ski trek" 
+     class="story-image"
+     style="max-height:280px;">
+<p class="story-image-caption">The group moving through deep snow — one of the final known photographs of the expedition underway</p>
+
+<div class="timeline">
+    <div class="timeline-item">
+        <div class="date">JANUARY 1959 — PREPARATION</div>
+        <div class="title">Expedition assembled at Ural Polytechnic Institute</div>
+        <div class="detail">
+            Ten members selected. Route planned toward Otorten. Equipment checked. Dyatlov records an 
+            unexplained sense of unease in his personal diary prior to departure. [Historical core + fictional diary note]
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">25 JANUARY 1959</div>
+        <div class="title">Departure by train from Sverdlovsk</div>
+        <div class="detail">
+            Group travels by train to Ivdel, then onward toward the settlement of Vizhai. Spirits high. 
+            Photographs taken. Messages sent home confirming expected return within 2–3 weeks.
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">27 JANUARY 1959</div>
+        <div class="title">Arrival at Vizhai settlement</div>
+        <div class="detail">
+            Final supplies obtained. Local guides consulted. The group begins the trek into the mountains 
+            the following day.
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">28 JANUARY – 31 JANUARY</div>
+        <div class="title">Trek begins — Checkpoint records</div>
+        <div class="detail">
+            Progress logged at successive points. Weather remains manageable. One member, Yuri Yudin, 
+            experiences joint pain and decides to turn back. The remaining nine continue. Photographs of 
+            the farewell are taken. [Yudin historically returned; CTF expands checkpoint inconsistencies]
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">1 FEBRUARY 1959</div>
+        <div class="title">Last known records — slope of Kholat Syakhl</div>
+        <div class="detail">
+            Final diary entries and photographs recovered from the tent site. The group camps on the slope 
+            rather than in the forest. No further contact is made. Some later accounts mention reports of 
+            unusual lights in the northern sky that night — these remain unverified. <!-- 2nd >> FLAG{last_diary_entry_"..."} -->
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">MID-FEBRUARY 1959</div>
+        <div class="title">Failure to return — Families raise alarm</div>
+        <div class="detail">
+            Expected return date passes. Families contact the Institute. Initial response is delayed. 
+            Search operations eventually authorized.
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">26 FEBRUARY 1959</div>
+        <div class="title">Tent discovered by search party</div>
+        <div class="detail">
+            Abandoned tent found on the slope. Cut open from the inside. Belongings and some footwear 
+            left behind. Tracks lead downhill toward the forest. [Core historical finding]
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">LATE FEBRUARY – MAY 1959</div>
+        <div class="title">Bodies recovered — Investigation concludes</div>
+        <div class="detail">
+            Bodies located in stages. Official cause of death recorded as hypothermia for most; additional 
+            injuries noted for others. Case closed. Certain files later described as incomplete or restricted. 
+            [Historical outcome; CTF adds restricted report discrepancy]
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="date">ARCHIVE RECOVERY — PRESENT</div>
+        <div class="title">Digital reconstruction of case materials</div>
+        <div class="detail">
+            Recovered documents, photographic plates, and radio intercept fragments made available to 
+            authorized digital investigators. Progression through evidence stages required to unlock 
+            restricted sections.
+        </div>
+    </div>
+</div>
+
+<p class="mt-2">
+    <a href="{{ url_for('documents') }}" class="btn">Examine Recovered Documents</a>
+    <a href="{{ url_for('investigation') }}" class="btn">Investigation Progress</a>
+</p>
+{% endblock %}

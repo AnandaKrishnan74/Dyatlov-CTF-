@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}DYATLOV PASS — THE SILENT EXPEDITION{% endblock %}
+{% block content %}
+<section class="landing">
+    <p class="case-number">CASE FILE: URAL-1959-09</p>
+    <h2 style="border:none; font-size:1.8rem;">DYATLOV PASS</h2>
+    <p class="site-subtitle" style="margin-bottom:1.5rem;">THE SILENT EXPEDITION</p>
+    
+    <div class="stamp">RESTRICTED ARCHIVE</div>
+    
+    <img src="{{ url_for('static', filename='images/ski_trek.png') }}" 
+         alt="Expedition members skiing through snow" 
+         class="hero-image"
+         style="max-height:320px;">
+    <p class="story-image-caption">Recovered frame — group ascending toward the pass, late January 1959</p>
+    
+    <p class="intro">
+        In the winter of 1959, ten experienced trekkers set out into the Northern Ural Mountains.
+        They never returned. What the search parties found raised more questions than answers.
+        Decades later, a recovered digital archive offers a new opportunity to examine the evidence.
+    </p>
+    
+    <blockquote class="mystery" data-typewriter>
+        "Something about this journey feels different. I cannot explain the unease."
+        — I. Dyatlov, personal diary, January 1959
+    </blockquote>
+    
+    <div class="mt-2">
+        <a href="{{ url_for('case_overview') }}" class="btn btn-primary">OPEN CASE FILE</a>
+        <a href="{{ url_for('investigation') }}" class="btn">BEGIN INVESTIGATION</a>
+    </div>
+    
+    <p class="text-muted mt-2" style="font-size:0.8rem;">
+        This investigation is a fictional CTF narrative inspired by historical events.<br>
+        Documented historical facts are distinguished from invented evidence.
+    </p>
+</section>
+{% endblock %}

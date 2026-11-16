@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Stage {{ stage_num }} — {{ title }}{% endblock %}
+{% block content %}
+<h2>Stage {{ stage_num }}: {{ title }}</h2>
+<p class="lead">{{ description }}</p>
+
+{% if completed %}
+<div class="flash success">This stage has been completed. Evidence recovered.</div>
+{% endif %}
+
+<div class="document">
+    <div class="meta">STAGE {{ stage_num }} INVESTIGATION BRIEF</div>
+    
+    {% if stage_num == 1 %}
+    <h3>Objective: Establish the facts</h3>
+    <p>
+        Read the Case Overview carefully. Examine the page source, meta tags, and any hidden comments 
+        or recovery codes embedded in the archive interface. The first flag is recoverable from the 
+        publicly available case materials without requiring later unlocks.
+    </p>
+    <p>Hint: View page source on the Case Overview. Look for case-recovery metadata.</p>
+    
+    {% elif stage_num == 2 %}
+    <h3>Objective: Interpret the diary</h3>
+    <p>
+        The final diary fragment is now available under Recovered Documents. Compare the language 
+        used in the early diary entry with the incomplete final entry. A single recurring theme 
+        forms the basis of the recovery code.
+    </p>
+    <p>Hint: The word that appears in both the January unease note and the February fragment.</p>
+    
+    {% elif stage_num == 3 %}
+    <h3>Objective: Reconstruct the route</h3>
+    <p>
+        Checkpoint records are incomplete. The final location entry is blank. Cross-reference with 
+        known geography of the incident and search-party discoveries. The mountain name associated 
+        with the tent site is the missing piece.
+    </p>
+    <p>Hint: "Dead Mountain" in the local language.</p>
+    
+    {% elif stage_num == 4 %}
+    <h3>Objective: Analyse the anomalous photograph</h3>
+    <p>
+        EVD-04 is available for download from the Photographic Evidence section. The file itself 
+        contains the recoverable clue. Perform metadata inspection, hex analysis, or steganographic 
+        extraction using tools on the CTF virtual machine. Do not expect the website to decode it.
+    </p>
+    <p>Hint: The filename and the narrative both state that this photograph should not exist.</p>
+    
+    {% elif stage_num == 5 %}
+    <h3>Objective: Identify the discrepancy</h3>
+    <p>
+        With the restricted report now visible, compare search-party observations against the official 
+        summary. Note what appears missing, altered, or inconsistently described. The key issue is 
+        the nature of the discrepancy itself.
+    </p>
+    <p>Hint: Focus on what the restricted materials withhold rather than inventing external causes.After getting the flag, {"smallcaps"}</p>
+    
+    {% elif stage_num == 6 %}
+    <h3>Objective: Examine the unidentified signal</h3>
+    <p>
+        Radio intercept logs show an unlisted frequency. A fragment file is available for download. 
+        Analyse it on the VM. The recovery code reflects the classification of the transmission.
+    </p>
+    <p>Hint: The frequency was never assigned to search units.</p>
+    
+    {% elif stage_num == 7 %}
+    <h3>Objective: Reconstruct the final truth</h3>
+    <p>
+        Combine insights from all previous stages: the diary theme, the checkpoint location, the 
+        anomalous photograph, the report discrepancy, and the radio signal. The final flag represents 
+        closure of the digital investigation while preserving the unresolved nature of the historical event.
+    </p>
+    <p>Hint: The expedition remained silent. The case title contains the essence.</p>
+    {% endif %}
+</div>
+
+<!-- ssh-fundamental ! >>  NF3G2Z32M56HKYLXM5QXQYI=  -->
+
+
+{% if not completed %}
+<div class="flag-form">
+    <form method="POST" action="{{ url_for('flag_stage', stage_num=stage_num) }}">
+        <label for="flag">Submit recovered flag for Stage {{ stage_num }}</label>
+        <input type="text" id="flag" name="flag" placeholder="FLAG{...}" autocomplete="off" required>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit Flag</button>
+    </form>
+</div>
+{% else %}
+<p class="mt-2"><a href="{{ url_for('investigation') }}" class="btn">Return to Progress</a></p>
+{% endif %}
+
+{% if stage_num < 7 and completed %}
+<p class="mt-2"><a href="{{ url_for('flag_stage', stage_num=stage_num + 1) }}" class="btn">Proceed to next stage</a></p>
+{% endif %}
+{% endblock %}

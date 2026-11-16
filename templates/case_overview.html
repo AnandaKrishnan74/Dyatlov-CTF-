@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Case Overview — DYATLOV PASS{% endblock %}
+{% block content %}
+<h2>Case Overview</h2>
+
+<!-- Hidden clue for Flag 1 -->
+<!-- The expedition never reported from the final checkpoint.Search here for the first recovery code and crack it!!!. -->
+
+<p class="lead">CASE STATUS: <strong style="color:var(--accent-red);">UNRESOLVED</strong></p>
+
+<div class="document">
+    <div class="meta">URAL POLYTECHNIC INSTITUTE — EXPEDITION 09 — CLASSIFICATION: RESTRICTED</div>
+    <h3>Expedition Summary</h3>
+    <p>
+        In late January 1959, a group of ten experienced hikers associated with the Ural Polytechnic Institute 
+        prepared for a Category III winter expedition into the Northern Ural Mountains. The group was led by 
+        Igor Dyatlov, a 23-year-old radio engineering student known for previous successful treks.
+    </p>
+    <p>
+        The party consisted of eight men and two women. All members possessed significant experience with 
+        difficult terrain, extreme cold, and multi-day winter travel. The expedition was expected to last 
+        approximately three weeks and would qualify participants for higher hiking certifications.
+    </p>
+</div>
+
+<img src="{{ url_for('static', filename='images/members.png') }}" 
+     alt="Portraits of the Dyatlov expedition members" 
+     class="story-image"
+     style="max-height:480px; object-fit:contain; background:#111;">
+<p class="story-image-caption">
+    The nine who continued after Yuri Yudin turned back: Lyudmila Dubinina, Yuri Krivonischenko, 
+    Rustem Slobodin, Aleksander Kolevatov, Semyon Zolotaryov, Yuri Doroshenko, Zinaida Kolmogorova, 
+    <span style="color: red;">Igor Dyatlov</span>, Nikolay Thibeaux-Brignolle.
+</p>
+
+<div class="document">
+    <div class="meta">MISSING PERSONS REPORT — FILED FEBRUARY 1959</div>
+    <h3>Disappearance</h3>
+
+<!-- Stage-1 _ RkxBR3ttaXNzaW5nX2V4cGVkaXRpb25fdXJhbF8xOTU5fQ== -->
+
+    <p>
+        When the group failed to return by the expected date, families contacted the Institute. Initial 
+        delays occurred due to assumptions of weather-related slowdowns. Search parties were eventually 
+        organized.
+    </p>
+    <p>
+        Investigators located an abandoned tent on the slope of Kholat Syakhl ("Dead Mountain"). Evidence 
+        indicated the tent had been cut open from the inside. Belongings remained inside. Tracks led away 
+        from the shelter into the freezing night.
+    </p>
+</div>
+
+<img src="{{ url_for('static', filename='images/tent_site.png') }}" 
+     alt="Search party at the abandoned tent site" 
+     class="story-image">
+<p class="story-image-caption">Search party examines the tent cut open from the inside — late February 1959</p>
+
+<div class="document">
+    <div class="meta">INVESTIGATOR NOTE — ARCHIVE RECOVERY</div>
+    <h3>Your Assignment</h3>
+    <p>
+        You have been granted access to a reconstructed digital archive containing recovered expedition 
+        records, search-party notes, photographic plates, and radio intercept fragments. Your task is to 
+        reconstruct the final days of the expedition, identify missing or anomalous evidence, and determine 
+        what the restricted materials may conceal.
+    </p>
+    <p>
+        Proceed methodically. Compare documents. Examine timestamps. Note inconsistencies. Some evidence 
+        will only become available after prior stages are resolved.
+    </p>
+    
+</div>
+
+<div class="anomaly-box">
+    <p>
+        Later accounts and some recovered notes mention brief observations of unusual lights in the sky 
+        on the night of 1–2 February. These reports remain unverified and form part of the enduring 
+        mystery surrounding the case. The official investigation did not establish a connection.
+    </p>
+</div>
+
+<p class="mt-2">
+    <a href="{{ url_for('timeline') }}" class="btn">View Expedition Timeline</a>
+    <a href="{{ url_for('investigation') }}" class="btn">Go to Investigation Progress</a>
+</p>
+{% endblock %}

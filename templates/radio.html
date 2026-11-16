@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Radio Intercepts — DYATLOV PASS{% endblock %}
+{% block content %}
+<h2>Radio Intercepts</h2>
+<p class="lead">Recovered frequency logs from search operations and nearby monitoring stations. Some transmissions remain corrupted.</p>
+
+<div class="radio-log">
+<span class="time">[1959-02-20 14:22 UTC]</span> <span class="freq">FREQ: 4625 kHz</span><br>
+<span class="signal">SIG: -82 dBm</span> | INTERFERENCE: Moderate static<br>
+TRANSCRIPT: "...search grid sector four... no visual... wind increasing..."<br>
+STATUS: Partial — operator notes routine traffic
+</div>
+
+<div class="radio-log">
+<span class="time">[1959-02-22 03:17 UTC]</span> <span class="freq">FREQ: 4625 kHz</span><br>
+<span class="signal">SIG: -91 dBm</span> | INTERFERENCE: Heavy<br>
+TRANSCRIPT: <span class="corrupt">[CORrupted — unintelligible burst lasting 4.2 seconds]</span><br>
+STATUS: Logged as possible equipment fault
+</div>
+
+<div class="radio-log">
+<span class="time">[1959-02-23 19:05 UTC]</span> <span class="freq">FREQ: 4625 kHz</span><br>
+<span class="signal">SIG: -78 dBm</span> | INTERFERENCE: Low<br>
+TRANSCRIPT: "Base, this is Search Two. We have the tent. Cut from inside. Tracks lead northeast into the trees. Requesting additional lights."<br>
+STATUS: Confirmed search party traffic
+</div>
+
+<div class="radio-log" style="border-color:#8b0000;">
+<span class="time">[1959-02-24 02:41 UTC]</span> <span class="freq">FREQ: 4610 kHz</span> <span style="color:#c41e1e;">[UNLISTED FREQUENCY]</span><br>
+<span class="signal">SIG: -105 dBm</span> | INTERFERENCE: Unknown origin<br>
+TRANSCRIPT: <span class="corrupt">...signal... not search... repeating fragment... [data loss] ...</span><br>
+OPERATOR NOTE: Frequency not assigned to any known search unit. Brief carrier detected. No further contacts on 4610.<br>
+STATUS: <strong style="color:#c41e1e;">UNIDENTIFIED — REFERRED TO RESTRICTED FILE</strong>
+</div>
+
+<div class="anomaly-box">
+    <p>
+        The unidentified transmission on 4610 kHz has been cited in later speculative literature 
+        alongside reports of unusual aerial phenomena observed in the region. No causal link was 
+        established by investigators. Within this CTF the recovered audio fragment serves as a 
+        recoverable clue.
+    </p>
+</div>
+
+<div class="document mt-2">
+    <div class="meta">ARCHIVE NOTE — AUDIO RECONSTRUCTION</div>
+    <h3>Recovered Signal Recording</h3>
+    <p>
+        A digital reconstruction of the 4610 kHz intercept has been preserved. The recording contains 
+        a clear on-off keyed tone sequence consistent with Morse telegraphy. Decode the tones to 
+        recover the Stage 6 flag.
+    </p>
+    <p style="margin: 1rem 0;">
+        <a href="{{ url_for('download_artifact', filename='radio_intercept_4610.wav') }}" 
+           class="btn btn-primary" style="font-size:0.85rem;">
+            ↓ Download radio_intercept_4610.wav
+        </a>
+        <a href="{{ url_for('download_artifact', filename='radio_log_fragment.txt') }}" 
+           class="btn" style="font-size:0.75rem;padding:0.4rem 0.8rem;">
+            Download text log fragment
+        </a>
+    </p>
+    <p class="text-muted" style="font-size:0.8rem;">
+        Hint: Listen to the short and long tones. International Morse code. 
+        The full message is the flag in the format FLAG{...}.
+    </p>
+    <p class="text-muted" style="font-size:0.75rem; margin-top:0.5rem;">
+        Stage 6 objective: Identify the nature of the signal → FLAG{ "small caps" }
+    </p>
+</div>
+
+<p class="mt-2">
+    <a href="{{ url_for('investigation') }}" class="btn">Investigation Progress</a>
+</p>
+{% endblock %}

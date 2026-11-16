@@ -1,0 +1,14 @@
+URAL SEARCH NET - FRAGMENT ARCHIVE
+----------------------------------
+Capture timestamp: 1959-02-24 02:41 UTC
+Frequency: 4610 kHz (UNASSIGNED)
+Duration: 4.2s burst + carrier
+
+Decoded partial content (modern reconstruction):
+... unidentified ... not search unit ... repeating ...
+
+Classification for digital investigator:
+The transmission does not match any known search party callsign or frequency assignment.
+Recovery code for Stage 6!!
+
+[End of fragment]

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DYATLOV PASS — THE SILENT EXPEDITION{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="grain"></div>
+    
+    <header class="site-header">
+        <div class="header-stamp">URAL-1959-09</div>
+        <div class="header-classification">RESTRICTED ARCHIVE</div>
+        <h1 class="site-title"><a href="{{ url_for('index') }}">DYATLOV PASS</a></h1>
+        <p class="site-subtitle">THE SILENT EXPEDITION</p>
+    </header>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{{ url_for('case_overview') }}">Case Overview</a></li>
+            <li><a href="{{ url_for('timeline') }}">Expedition Timeline</a></li>
+            <li><a href="{{ url_for('documents') }}">Recovered Documents</a></li>
+            <li><a href="{{ url_for('evidence') }}">Photographic Evidence</a></li>
+            <li><a href="{{ url_for('radio') }}">Radio Intercepts</a></li>
+            <li><a href="{{ url_for('investigation') }}">Investigation Progress</a></li>
+        </ul>
+    </nav>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer class="site-footer">
+        <p>CASE FILE URAL-1959-09 &mdash; RESTRICTED &mdash; FOR AUTHORIZED INVESTIGATORS ONLY</p>
+        <p class="disclaimer">This is a fictionalized CTF investigation inspired by historical events. Not a documentary representation.</p>
+        <form action="{{ url_for('reset_progress') }}" method="POST" class="reset-form" onsubmit="return confirm('Reset all investigation progress?');">
+            <button type="submit" class="btn-reset">Reset Investigation</button>
+        </form>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

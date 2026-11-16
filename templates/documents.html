@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}Recovered Documents — DYATLOV PASS{% endblock %}
+{% block content %}
+<h2>Recovered Documents</h2>
+<p class="lead">Archive of expedition and investigation materials. Some sections unlock after investigation stages are completed.</p>
+
+<!-- Always available -->
+<div class="document">
+    <div class="meta">DOCUMENT ID: DYA-DIARY-01 | RECOVERY: TENT SITE</div>
+    <h3>Dyatlov Personal Diary — Early Entries</h3>
+    <p><em>23 January 1959</em></p>
+    <p>
+        Preparations nearly complete. The group is strong. Yuri, Zina, Rustem, all experienced. 
+        Yet I find myself writing the same line twice: something about this journey feels different. 
+        I cannot explain the unease. Perhaps the isolation. Perhaps the stories the old hunters tell 
+        about Kholat Syakhl.
+    </p>
+    <p>
+        We leave the day after tomorrow. I will not share these doubts with the others.
+    </p>
+</div>
+
+<div class="document">
+    <div class="meta">DOCUMENT ID: DYA-CORR-03 | TELEGRAM COPY</div>
+    <h3>Correspondence — Message to Family</h3>
+    <p>
+        "All well. Weather holding. Expect us back by the twentieth at latest. Do not worry. — Igor"
+    </p>
+    <p class="text-muted" style="font-size:0.8rem;">Telegram dated 28 January from Vizhai area.</p>
+</div>
+
+{% if progress >= 1 %}
+<!-- Unlocked after Flag 1 -->
+<div class="document">
+    <div class="meta">DOCUMENT ID: DYA-DIARY-FINAL | STATUS: INCOMPLETE</div>
+    <h3>Final Diary Fragment — Recovered</h3>
+    <p><em>1 February 1959 — evening</em></p>
+    <p>
+        Wind stronger than expected. We chose the slope rather than drop to the timberline. 
+        Mistake? The others are settling. I keep thinking of the word I wrote weeks ago: 
+        <strong>unease</strong>. It has not left.
+    </p>
+    <p>
+        There is a sound tonight that is not the wind. Or perhaps it is only the wind. 
+        I will finish this entry in the morning.
+    </p>
+    <p style="color:#666; font-style:italic;">
+        [Entry ends. Remaining pages damaged or missing. Margin note in different hand: 
+        "passage incomplete — cross-ref radio log"]
+    </p>
+    <!-- Flag 2 clue: the word that appears in both early and final entries -->
+    <p class="text-muted" style="font-size:0.75rem; margin-top:1rem;">
+        Investigator note: Compare early diary language with this fragment. The recurring theme 
+        forms the recovery code for stage 2, its a word.
+    </p>
+</div>
+{% else %}
+<div class="document" style="opacity:0.5;">
+    <div class="meta">DOCUMENT ID: DYA-DIARY-FINAL | STATUS: LOCKED</div>
+    <h3>Final Diary Fragment</h3>
+    <p>Complete Stage 1 — The Missing Expedition — to unlock this document.</p>
+</div>
+{% endif %}
+
+{% if progress >= 2 %}
+<div class="document">
+    <div class="meta">DOCUMENT ID: CHK-LOG-07 | CHECKPOINT RECORDS</div>
+    <h3>Expedition Checkpoint Log (Partial)</h3>
+    <table style="width:100%; border-collapse:collapse; font-size:0.9rem; color:var(--text-dark);">
+        <tr style="border-bottom:1px solid #a09080;">
+            <th style="text-align:left; padding:0.3rem;">Date</th>
+            <th style="text-align:left; padding:0.3rem;">Location Ref</th>
+            <th style="text-align:left; padding:0.3rem;">Notes</th>
+        </tr>
+        <tr>
+            <td style="padding:0.3rem;">28 Jan</td>
+            <td style="padding:0.3rem;">Vizhai departure</td>
+            <td style="padding:0.3rem;">All 10 present</td>
+        </tr>
+        <tr>
+            <td style="padding:0.3rem;">29 Jan</td>
+            <td style="padding:0.3rem;">River crossing</td>
+            <td style="padding:0.3rem;">Yudin difficulty noted</td>
+        </tr>
+        <tr>
+            <td style="padding:0.3rem;">30 Jan</td>
+            <td style="padding:0.3rem;">Forest edge</td>
+            <td style="padding:0.3rem;">Yudin returns. 9 continue</td>
+        </tr>
+        <tr>
+            <td style="padding:0.3rem;">31 Jan</td>
+            <td style="padding:0.3rem;">Approaching ridge</td>
+            <td style="padding:0.3rem;">Weather deteriorating</td>
+        </tr>
+        <tr style="background:#f0e8d8;">
+            <td style="padding:0.3rem;">1 Feb</td>
+            <td style="padding:0.3rem;"><strong>???</strong></td>
+            <td style="padding:0.3rem;">Entry incomplete / location blank</td>
+        </tr>
+    </table>
+    <p style="margin-top:1rem;">
+        The final checkpoint location was never properly logged. Search-party notes later referred to 
+        the slope of <strong>Kholat Syakhl</strong>. Reconstruct the missing reference.
+    </p>
+   
+   <!-- Stage 3 recovery format inside FTP -->
+    
+</div>
+{% else %}
+<div class="document" style="opacity:0.5;">
+    <div class="meta">DOCUMENT ID: CHK-LOG-07 | STATUS: LOCKED</div>
+    <h3>Checkpoint Records</h3>
+    <p>Complete Stage 2 to unlock checkpoint analysis.</p>
+</div>
+{% endif %}
+
+{% if progress >= 4 %}
+<div class="document">
+    <div class="meta">DOCUMENT ID: INV-REPORT-RESTRICTED | CLASSIFICATION: RESTRICTED</div>
+    <h3>Search Party Summary vs Official Findings</h3>
+    <p>
+        Search team notes describe the tent cut from the inside, footprints of 8–9 people leading 
+        toward the forest, and the absence of external attack indicators at the tent site.
+    </p>
+    <p>
+        Official report emphasizes hypothermia and "compelling natural force." Certain pages appear 
+        to have been removed or never filed. One inventory list of recovered items is incomplete.
+    </p>
+    <p>
+        Cross-reference with photographic plate EVD-04 and radio intercept R-17. Discrepancies exist 
+        regarding the number of tracks and the timing of the final radio silence.
+    </p>
+    <div class="stamp">PORTIONS REDACTED</div>
+    
+    <!-- RkxBR3tyZXN0cmljdGVkX3JlcG9ydF9kaXNjcmVwYW5jeX0= -->
+   
+</div>
+{% endif %}
+
+<p class="mt-2">
+    <a href="{{ url_for('investigation') }}" class="btn">Return to Investigation</a>
+</p>
+{% endblock %}

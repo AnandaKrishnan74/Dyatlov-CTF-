@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Investigation Progress — DYATLOV PASS{% endblock %}
+{% block content %}
+<h2>Investigation Progress</h2>
+<p class="lead">Seven stages. Each recovered flag unlocks the next body of evidence. Progress is tracked for your current session.</p>
+
+<div class="stages-grid">
+{% for stage in stages %}
+    <div class="stage-card {{ stage.status }}">
+        <div class="stage-number">{{ stage.number }}</div>
+        <div class="stage-info">
+            <strong>{{ stage.title }}</strong>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin:0.3rem 0 0;">{{ stage.description }}</p>
+        </div>
+        <div>
+            <span class="stage-status {{ stage.status }}">{{ stage.status }}</span>
+            {% if stage.status == 'available' or stage.status == 'completed' %}
+                <a href="{{ url_for('flag_stage', stage_num=stage.number) }}" class="btn" style="margin-top:0.5rem;font-size:0.75rem;padding:0.3rem 0.6rem;">
+                    {% if stage.status == 'completed' %}Review{% else %}Investigate{% endif %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<p class="text-muted" style="font-size:0.8rem;">
+    Current progress: Stage {{ progress }} of 7 completed.
+    {% if progress == 7 %}
+        <a href="{{ url_for('ending') }}">View final case summary →</a>
+    {% endif %}
+</p>
+{% endblock %}
